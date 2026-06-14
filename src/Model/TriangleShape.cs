@@ -4,13 +4,8 @@ using System.Drawing.Drawing2D;
 
 namespace Draw
 {
-	/// <summary>
-	/// Triangle primitive that uses the bounding rectangle as a guide for its geometry.
-	/// </summary>
 	public class TriangleShape : Shape
 	{
-		#region Constructor
-		
 		public TriangleShape(RectangleF rect) : base(rect)
 		{
 			Name = "Triangle";
@@ -20,12 +15,7 @@ namespace Draw
 		{
 			Name = "Triangle";
 		}
-		
-		#endregion
-		
-		/// <summary>
-		/// Hit test against the transformed triangle path.
-		/// </summary>
+
 		public override bool Contains(PointF point)
 		{
 			using (GraphicsPath path = GetPath()) {
@@ -36,10 +26,7 @@ namespace Draw
 				return path.IsVisible(point);
 			}
 		}
-		
-		/// <summary>
-		/// Draws the filled triangle and its outline.
-		/// </summary>
+
 		public override void DrawSelf(Graphics grfx)
 		{
 			using (GraphicsPath path = GetPath()) {

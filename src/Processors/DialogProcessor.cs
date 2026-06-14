@@ -108,9 +108,6 @@ namespace Draw
 			ShapeList.Add(line);
 		}
 		
-		/// <summary>
-		/// Adds a triangle at a random location.
-		/// </summary>
 		public void AddRandomTriangle()
 		{
 			int x = random.Next(100, 1000);

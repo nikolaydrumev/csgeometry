@@ -244,9 +244,6 @@ namespace Draw
 			this.addLineToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.addLineToolStripMenuItem.Text = "Add Line";
 			this.addLineToolStripMenuItem.Click += new System.EventHandler(this.AddLineToolStripMenuItemClick);
-			// 
-			// addTriangleToolStripMenuItem
-			// 
 			this.addTriangleToolStripMenuItem.Name = "addTriangleToolStripMenuItem";
 			this.addTriangleToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.addTriangleToolStripMenuItem.Text = "Add Triangle";
