@@ -109,6 +109,22 @@ namespace Draw
 		}
 		
 		/// <summary>
+		/// Adds a triangle at a random location.
+		/// </summary>
+		public void AddRandomTriangle()
+		{
+			int x = random.Next(100, 1000);
+			int y = random.Next(100, 600);
+			
+			TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 140, 120));
+			triangle.FillColor = Color.White;
+			triangle.StrokeColor = Color.Black;
+			triangle.StrokeWidth = 1f;
+			
+			ShapeList.Add(triangle);
+		}
+		
+		/// <summary>
 		/// Returns the top-most shape under the specified point.
 		/// </summary>
 		/// <param name="point">Test point.</param>

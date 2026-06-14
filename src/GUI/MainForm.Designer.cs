@@ -52,6 +52,7 @@ namespace Draw
 			this.addRectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addEllipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.addTriangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusBar = new System.Windows.Forms.StatusStrip();
@@ -217,7 +218,8 @@ namespace Draw
 			this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.addRectangleToolStripMenuItem,
 									this.addEllipseToolStripMenuItem,
-									this.addLineToolStripMenuItem});
+									this.addLineToolStripMenuItem,
+									this.addTriangleToolStripMenuItem});
 			this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
 			this.imageToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
 			this.imageToolStripMenuItem.Text = "Image";
@@ -242,6 +244,13 @@ namespace Draw
 			this.addLineToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.addLineToolStripMenuItem.Text = "Add Line";
 			this.addLineToolStripMenuItem.Click += new System.EventHandler(this.AddLineToolStripMenuItemClick);
+			// 
+			// addTriangleToolStripMenuItem
+			// 
+			this.addTriangleToolStripMenuItem.Name = "addTriangleToolStripMenuItem";
+			this.addTriangleToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.addTriangleToolStripMenuItem.Text = "Add Triangle";
+			this.addTriangleToolStripMenuItem.Click += new System.EventHandler(this.AddTriangleToolStripMenuItemClick);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -342,6 +351,7 @@ namespace Draw
 		private System.Windows.Forms.ToolStripMenuItem addEllipseToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addLineToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addRectangleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem addTriangleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changeFillColorToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changeStrokeColorToolStripMenuItem;
 		private System.Windows.Forms.ToolStripStatusLabel currentStatusLabel;

@@ -10,7 +10,7 @@ This project is a Windows Forms drawing editor written in C#. It demonstrates ob
 
 ## Implemented features
 
-- Add random rectangle, ellipse, and line shapes
+- Add random rectangle, ellipse, line, and triangle shapes
 - Single selection and multi-selection with `Ctrl + click`
 - Drag and drop translation of selected shapes
 - Fill color and stroke color changes
@@ -47,6 +47,7 @@ The project targets Windows Forms and is intended to run on Windows.
 - `Image -> Add Rectangle` adds a rectangle.
 - `Image -> Add Ellipse` adds an ellipse.
 - `Image -> Add Line` adds a line.
+- `Image -> Add Triangle` adds a triangle.
 - Activate the selection tool from the toolbar and click a shape to select it.
 - Hold `Ctrl` and click multiple shapes for multi-selection.
 - Drag selected shapes with the mouse to move them.
@@ -77,6 +78,7 @@ This layer contains the Windows Forms user interface, menu handlers, status bar 
 - `RectangleShape.cs`
 - `EllipseShape.cs`
 - `LineShape.cs`
+- `TriangleShape.cs`
 - `GroupShape.cs`
 
 This layer contains the base shape abstraction and the concrete drawable shapes.
@@ -96,6 +98,7 @@ This layer contains rendering, interaction logic, grouping behavior, and JSON pe
 - `RectangleShape` draws a filled rectangle with a stroke.
 - `EllipseShape` draws a filled ellipse with a stroke.
 - `LineShape` draws a line between two points.
+- `TriangleShape` draws an upright triangle inside its bounding rectangle.
 - `GroupShape` stores child shapes and allows them to be manipulated together.
 
 ### Transformations
@@ -132,9 +135,27 @@ The saved JSON contains:
 - rotation angle
 - scale factor
 - line start and end points
+- triangle bounding rectangle data
 - group children
 
 Selection state is not saved as selected. After loading, the current selection is cleared.
+
+## Where triangle support was added
+
+Triangle support was added in these exact places:
+
+- `src/Model/TriangleShape.cs`
+  Contains the `TriangleShape` class, its triangle geometry, drawing, and hit testing.
+- `src/Processors/DialogProcessor.cs`
+  Contains `AddRandomTriangle()`, which creates a triangle and adds it to `ShapeList`.
+- `src/GUI/MainForm.cs`
+  Contains `AddTriangleToolStripMenuItemClick()`, which calls `dialogProcessor.AddRandomTriangle()`.
+- `src/GUI/MainForm.Designer.cs`
+  Adds the `Image -> Add Triangle` menu item and wires its click event.
+- `src/Processors/DrawingJsonSerializer.cs`
+  Saves triangles with type `"Triangle"` and loads them back correctly.
+- `Draw.csproj`
+  Includes `src/Model/TriangleShape.cs` in the build.
 
 ## Review notes
 

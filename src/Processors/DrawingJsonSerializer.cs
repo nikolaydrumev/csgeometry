@@ -78,7 +78,7 @@ namespace Draw
 			}
 			
 			ShapeDto dto = new ShapeDto();
-			dto.Type = shape.GetType().Name;
+			dto.Type = GetShapeTypeName(shape);
 			dto.Name = shape.Name;
 			dto.FillColorArgb = shape.FillColor.ToArgb();
 			dto.StrokeColorArgb = shape.StrokeColor.ToArgb();
@@ -126,17 +126,25 @@ namespace Draw
 			Shape shape;
 			switch (dto.Type) {
 				case "RectangleShape":
+				case "Rectangle":
 					shape = new RectangleShape(new RectangleF(dto.RectangleX, dto.RectangleY, dto.RectangleWidth, dto.RectangleHeight));
 					break;
 				case "EllipseShape":
+				case "Ellipse":
 					shape = new EllipseShape(new RectangleF(dto.RectangleX, dto.RectangleY, dto.RectangleWidth, dto.RectangleHeight));
 					break;
 				case "LineShape":
+				case "Line":
 					shape = new LineShape(
 						new PointF(dto.LineStartX, dto.LineStartY),
 						new PointF(dto.LineEndX, dto.LineEndY));
 					break;
+				case "TriangleShape":
+				case "Triangle":
+					shape = new TriangleShape(new RectangleF(dto.RectangleX, dto.RectangleY, dto.RectangleWidth, dto.RectangleHeight));
+					break;
 				case "GroupShape":
+				case "Group":
 					List<Shape> children = new List<Shape>();
 					if (dto.Children != null) {
 						foreach (ShapeDto childDto in dto.Children) {
@@ -159,6 +167,15 @@ namespace Draw
 			shape.IsSelected = false;
 			
 			return shape;
+		}
+		
+		private static string GetShapeTypeName(Shape shape)
+		{
+			if (shape is TriangleShape) {
+				return "Triangle";
+			}
+			
+			return shape.GetType().Name;
 		}
 		
 		private static void ValidateFilePath(string filePath)

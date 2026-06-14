@@ -101,6 +101,12 @@ namespace Draw
 			UpdateStatusAndRefresh("Добавена е линия.");
 		}
 		
+		void AddTriangleToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			dialogProcessor.AddRandomTriangle();
+			UpdateStatusAndRefresh("Добавен е триъгълник.");
+		}
+		
 		void DeleteSelectedToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			if (!EnsureSelection("изтриване")) {
